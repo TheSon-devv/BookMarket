@@ -24,11 +24,10 @@ export default class SignUp extends Component{
             <View style={styles.container}>
                 
                 {this.state.errorMessage && 
-                    <Text style={{color : 'red'}}>
+                    <Text style={{color : 'red',alignItems:'center',justifyContent:'center'}}>
                         {this.state.errorMessage}
                     </Text>
                 }
-                <Text>Sign Up</Text>
 
                 <TextInput 
                     placeholder="Email"
@@ -48,13 +47,13 @@ export default class SignUp extends Component{
                     
                 <View style={styles.buttonPress}>
                     <Button
-                        title="Sign Up"
+                        title="Đăng ký"
                         onPress={this.handleSignUp}
                     />
                 </View>
                 <View style={styles.buttonPress}>
                     <Button
-                        title="Already have an account? Login "
+                        title="Đã có tài khoản ? Đăng nhập "
                         onPress={ () => this.props.navigation.navigate('Login')}
                     />
                 </View>
@@ -72,7 +71,7 @@ const styles = StyleSheet.create({
         height: 40,
         width: '70%',
         borderColor: 'gray',
-        borderWidth:1,
+        borderWidth:0.5,
         marginVertical: 8,
         borderRadius : 10
     },

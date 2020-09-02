@@ -21,9 +21,9 @@ export default class Login extends Component{
 
         return(
             <View style={styles.container}>
-                    <Text style={styles.textLogin}>Log In</Text>
+                    
                     {this.state.errorMessage && 
-                        <Text style={{color : 'red'}}>
+                        <Text style={{color : 'red',}}>
                             {this.state.errorMessage}
                         </Text>
                     }
@@ -47,7 +47,7 @@ export default class Login extends Component{
                     <View style={styles.buttonPress}>
                         <TouchableOpacity>
                             <Button
-                                title="Login"
+                                title="Đăng nhập"
                                 onPress={this.handleLogin}
                                 color="red"
                                 
@@ -56,7 +56,7 @@ export default class Login extends Component{
                     </View>
                     <View style={styles.buttonPress}>
                         <Button
-                            title="Don't have an account ? Sign Up "
+                            title="Chưa có tài khoản ? Đăng ký "
                             onPress={ () => this.props.navigation.navigate('SignUp')}
                             color="red"
                         />
@@ -78,9 +78,9 @@ const styles = StyleSheet.create({
         height: 40,
         width: '70%',
         borderColor: 'gray',
-        borderWidth:1,
-        marginVertical: 6,
-        borderRadius: 10
+        borderWidth:0.5,
+        marginVertical: 8,
+        borderRadius: 10,
     },
     buttonPress : {
         marginTop : 8,
