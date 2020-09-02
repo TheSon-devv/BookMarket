@@ -11,7 +11,7 @@ const ProfileItem = ({icon,name}) => (
     <View style={styles.itemContainer}>
         <MaterialCommunityIcons name={icon} size={26} color='#1e1e1e' />
         <Text style={[styles.itemText, {marginLeft: icon ? 20 : 0}]}>{name}</Text>
-        
+        <FontAwesome name="angle-right" size={26} color="#1e1e1e" />
     </View>
 );
 export default class ProfileListItem extends Component {
