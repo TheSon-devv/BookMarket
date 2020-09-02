@@ -44,20 +44,28 @@ export default class ProfileListItem extends Component {
                 {/*  */}
 
                 <View style={styles.divider}>
-                    <ProfileItem icon="format-list-bulleted" name="Quản lý đơn hàng"/>
-                    <ProfileItem icon="cart-outline" name="Sản phẩm đã mua"/>
-                    <ProfileItem icon="eye-outline" name="Sản phẩm đã xem"/>
-                    <ProfileItem icon="heart-outline" name="Sản phẩm yêu thích"/>
-                    <ProfileItem icon="star-outline" name="Sản phẩm đã đánh giá"/>
+                    <TouchableOpacity >
+                        <ProfileItem icon="format-list-bulleted" name="Quản lý đơn hàng"/>
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <ProfileItem icon="cart-outline" name="Sản phẩm đã mua"/>
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <ProfileItem icon="eye-outline" name="Sản phẩm đã xem"/>
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <ProfileItem icon="heart-outline" name="Sản phẩm yêu thích"/>
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <ProfileItem icon="star-outline" name="Sản phẩm đã đánh giá"/>
+                    </TouchableOpacity>
                 </View>
 
                 <View style={styles.divider}>
                     <ProfileItem name="Hỗ trợ"/>
-                    
                 </View>
 
                 <View style={styles.divider}>
-                    
                     <Button 
                         title="Sign Out"
                         onPress = {this.handleSignOut}

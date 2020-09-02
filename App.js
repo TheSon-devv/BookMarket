@@ -1,32 +1,55 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import {SafeAreaView,StyleSheet,ScrollView,View,Text,StatusBar} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from './screens/HomeScreen';
 import NotificationScreen from './screens/NotificationScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 
 const Tab = createBottomTabNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-        <Tab.Navigator>
+        <Tab.Navigator
+            tabBarOptions = {
+                {
+                    activeTintColor: '#157cdb',
+                    inactiveTintColor: '#262626'
+                }
+            }
+        >
             <Tab.Screen
                 name="Home"
                 component={HomeScreen}
-                options={{title : 'My Home'}}
+                options={{
+                    tabBarLabel : 'Trang chủ',
+                    tabBarIcon : ({color}) => (
+                        <MaterialIcons name="home" color={color} size={24}/>
+                    )
+                }}
             />
             <Tab.Screen
                 name="Notification"
                 component={NotificationScreen}
-                options={{title : 'Notification'}}
+                options={{
+                    tabBarLabel : 'Thông báo',
+                    tabBarIcon : ({color}) => (
+                        <MaterialIcons name="notifications" color={color} size={24}/>
+                    )
+                }}
             />
             <Tab.Screen
                 name="Profile"
                 component={ProfileScreen}
-                options={{title : 'Profile'}}
+                options={{
+                    tabBarLabel : 'Cá nhân',
+                    tabBarIcon : ({color}) => (
+                        <MaterialIcons name="person" color={color} size={24}/>
+                    )
+                }}
             />
         </Tab.Navigator>
     </NavigationContainer>

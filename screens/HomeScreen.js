@@ -1,12 +1,11 @@
 import React from 'react';
 import {SafeAreaView,StyleSheet,ScrollView,View,Text,StatusBar} from 'react-native';
+import HeaderHome from '../components/HeaderHome';
 
 const HomeScreen = () => {
   return (
     <>
-      <View style={styles.container}>
-        <Text>Day la Home</Text>
-      </View>
+      <HeaderHome />
     </>
   );
 };
