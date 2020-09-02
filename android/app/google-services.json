@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "537621055030",
+    "firebase_url": "https://bookmarket-2512.firebaseio.com",
+    "project_id": "bookmarket-2512",
+    "storage_bucket": "bookmarket-2512.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:537621055030:android:b2058d69637ba6b891fa97",
+        "android_client_info": {
+          "package_name": "com.bookmarket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "537621055030-gl7jiur3abb90i4lmjk4rlhc59kpuafm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWIg-p6s0aBIi9LElR6W4cXm8s4p-MAVg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "537621055030-gl7jiur3abb90i4lmjk4rlhc59kpuafm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
