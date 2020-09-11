@@ -16,7 +16,7 @@ const App = () => {
         <Tab.Navigator
             tabBarOptions = {
                 {
-                    activeTintColor: '#157cdb',
+                    activeTintColor: '#56A5F0',
                     inactiveTintColor: '#262626'
                 }
             }
@@ -27,7 +27,7 @@ const App = () => {
                 options={{
                     tabBarLabel : 'Trang chủ',
                     tabBarIcon : ({color}) => (
-                        <MaterialIcons name="home" color={color} size={24}/>
+                        <MaterialIcons name="home" color={color} size={30}/>
                     )
                 }}
             />
@@ -37,7 +37,7 @@ const App = () => {
                 options={{
                     tabBarLabel : 'Thông báo',
                     tabBarIcon : ({color}) => (
-                        <MaterialIcons name="notifications" color={color} size={24}/>
+                        <MaterialIcons name="notifications" color={color} size={30}/>
                     )
                 }}
             />
@@ -47,7 +47,7 @@ const App = () => {
                 options={{
                     tabBarLabel : 'Cá nhân',
                     tabBarIcon : ({color}) => (
-                        <MaterialIcons name="person" color={color} size={24}/>
+                        <MaterialIcons name="person" color={color} size={30}/>
                     )
                 }}
             />

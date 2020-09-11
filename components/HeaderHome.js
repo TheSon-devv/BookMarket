@@ -6,7 +6,12 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 export default class HeaderHome extends Component{
     render(){
         return(
+        <View >
+            <View style={{backgroundColor : '#0BC99A'}}>
+                <Text style={styles.nameApp}>BookMarket</Text>
+            </View>
             <View style={styles.headerContainer}>
+                
                  <View style={styles.inputContainer}>
                     <TextInput  
                         placeholder="Bạn tìm gì hôm nay"
@@ -18,22 +23,31 @@ export default class HeaderHome extends Component{
                 
                 <View style={styles.cartContainer}>
                     <TouchableOpacity>
-                        <FontAwesome name="shopping-cart" size={28} color="#fff"/>
+                        <FontAwesome name="shopping-cart" size={30} color="#fff"/>
                     </TouchableOpacity>
                 </View>
             </View>
+        </View>
         )
     }
 }
 const styles = StyleSheet.create({
     headerContainer : {
         flexDirection : 'row',
-        backgroundColor : '#1e88e5',
+        backgroundColor : '#0BC99A',
         paddingVertical : 5
+    },
+    nameApp : {
+        textAlign : 'center',
+        fontWeight : '100',
+        color : '#fff',
+        fontSize : 20,
+        marginVertical : 5,
+
     },
     inputContainer : {
        flex : 1,
-       marginVertical : 10,
+       marginBottom : 10
     },
     inputText : {
         marginLeft : 10,

@@ -62,7 +62,9 @@ export default class ProfileListItem extends Component {
                 </View>
 
                 <View style={styles.divider}>
-                    <ProfileItem name="Hỗ trợ"/>
+                    <TouchableOpacity>
+                        <ProfileItem name="Hỗ trợ"/>
+                    </TouchableOpacity>
                 </View>
 
                 <View style={styles.divider}>
