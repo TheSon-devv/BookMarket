@@ -5,18 +5,12 @@ import ProfileListItem from './ProfileListItem';
 import Loading from './Loading';
 import Login from './Login';
 import SignUp from './SignUp';
-
+import Infomation from './Infomation';
 
 const ProfileStack = createStackNavigator();
 
 export default class ProfileScreen extends Component{
-
-    constructor(props){
-        super(props);
-        this.state = {
-            isSignedIn : false
-        }
-    }
+   
     render(){
         
         return(
@@ -25,6 +19,7 @@ export default class ProfileScreen extends Component{
             <ProfileStack.Screen name="Login" component={Login} options={{title:'Đăng nhập'}}/>
             <ProfileStack.Screen name="SignUp" component={SignUp} options={{title:'Đăng ký'}}/>
             <ProfileStack.Screen name="ProfileListItem" component={ProfileListItem} options={ {title:'Cá Nhân'}}/>
+            <ProfileStack.Screen name="Infomation" component={Infomation} options={ {title:'Thông tin ứng dụng'}}/>
         </ProfileStack.Navigator>
     )
     }

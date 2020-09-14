@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import {StyleSheet, View,Image,Dimensions,Text,ScrollView} from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import sach1 from '../Image/sach1.png';
+import {StyleSheet, View,Image,Dimensions,Text,ScrollView,TouchableOpacity} from 'react-native';
+import sach1 from '../../Image/sach1.png';
 
 
 export default class ListBook extends Component{
@@ -64,22 +63,25 @@ export default class ListBook extends Component{
 
 const{ width } = Dimensions.get('window');
 const{ height } = Dimensions.get('window');
-const itemWidth = ( width - 50 ) / 2;
+const itemWidth = ( width - 100 ) / 2;
 const itemImageHeight = (itemWidth / 200) * 292;
 
 const styles = StyleSheet.create({
     container : {
         backgroundColor : '#fff',
-        margin : 10
+        margin : 15
     },
     body : {
         flexDirection : 'row',
         justifyContent : 'space-around',
         flexWrap : 'wrap',
+
+        elevation : 2
     },
     itemContainer : {
         width : itemWidth,
-        paddingVertical: 10
+        paddingVertical: 10,
+
     },
     itemImage : {
         width : itemWidth,

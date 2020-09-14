@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import {StyleSheet,View,Text,Button,TextInput,TouchableOpacity} from 'react-native';
+import {StyleSheet,View,Text,Button,TextInput,TouchableOpacity, ImageBackground} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import firebase from '@react-native-firebase/app';
-
+import background from '../../Image/background.jpg';
 
 export default class Login extends Component{
 
@@ -22,29 +22,35 @@ export default class Login extends Component{
         return(
             <View style={styles.container}>
                     
-                    {this.state.errorMessage && 
+                <ImageBackground source={background} style={styles.image}>
+                    <View style={styles.formLogin}>
+                        {this.state.errorMessage && 
                         <Text style={{color : 'red',}}>
                             {this.state.errorMessage}
                         </Text>
-                    }
+                        }
 
-                    <TextInput 
-                        placeholder="Email"
-                        autoCapitalize="none"
-                        style = {styles.textInput}
-                        onChangeText ={email => this.setState({email})}
-                        value={this.state.email}
-                    />
-                    <TextInput 
-                        secureTextEntry
-                        placeholder="Password"
-                        autoCapitalize="none"
-                        style = {styles.textInput}
-                        onChangeText ={password => this.setState({password})}
-                        value={this.state.password}
-                    />
+                        <Text style={styles.textLogin}>ĐĂNG NHẬP</Text>
 
-                    <View style={styles.buttonPress}>
+                        <TextInput 
+                            placeholder="Email"
+                            placeholderTextColor='#fff'
+                            autoCapitalize="none"
+                            style = {styles.textInput}
+                            onChangeText ={email => this.setState({email})}
+                            value={this.state.email}
+                        />
+                        <TextInput 
+                            secureTextEntry
+                            placeholder="Password"
+                            placeholderTextColor='#fff'
+                            autoCapitalize="none"
+                            style = {styles.textInput}
+                            onChangeText ={password => this.setState({password})}
+                            value={this.state.password}
+                        />
+
+                        <View style={styles.buttonPress}>
                         <TouchableOpacity>
                             <Button
                                 title="Đăng nhập"
@@ -53,14 +59,16 @@ export default class Login extends Component{
                                 
                             />
                         </TouchableOpacity>
-                    </View>
-                    <View style={styles.buttonPress}>
+                        </View>
+                        <View style={styles.buttonPress}>
                         <Button
                             title="Chưa có tài khoản ? Đăng ký "
                             onPress={ () => this.props.navigation.navigate('SignUp')}
                             color="red"
                         />
+                        </View>
                     </View>
+                </ImageBackground>
             </View>
         )
     }
@@ -68,12 +76,15 @@ export default class Login extends Component{
 const styles = StyleSheet.create({
     container: {
         flex : 1,
-        justifyContent : 'center',
-        alignItems : 'center',
-        backgroundColor : '#0CF2B8'
+        flexDirection : 'column',
+        backgroundColor : '#FFF',
+    },
+    formLogin : {
+        alignItems: 'center'
     },
     textLogin : {
-        fontSize :18
+        fontSize :20,
+        color : '#fff'
     },
     textInput: {
         height: 40,
@@ -82,9 +93,14 @@ const styles = StyleSheet.create({
         borderWidth:0.5,
         marginVertical: 8,
         borderRadius: 10,
+        color:'#fff'
     },
     buttonPress : {
         marginTop : 8,
-        
-    }
+    },
+    image: {
+        flex: 1,
+        resizeMode: "cover",
+        justifyContent: "center"
+      },
 })

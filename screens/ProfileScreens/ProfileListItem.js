@@ -9,7 +9,7 @@ import auth from '@react-native-firebase/auth';
 
 const ProfileItem = ({icon,name}) => (
     <View style={styles.itemContainer}>
-        <MaterialCommunityIcons name={icon} size={26} color='#1e1e1e' />
+        <MaterialCommunityIcons name={icon} size={26} color='red' />
         <Text style={[styles.itemText, {marginLeft: icon ? 20 : 0}]}>{name}</Text>
         <FontAwesome name="angle-right" size={26} color="#1e1e1e" />
     </View>
@@ -34,7 +34,7 @@ export default class ProfileListItem extends Component {
                             <MaterialIcons name="person" size={26} color="#fff"/> 
                         </View>
                         <View style={styles.textContainer}>
-                            <Text style={styles.welcomeText}>Chào mừng đến với BookMarket</Text>
+                            <Text style={styles.welcomeText}>THÔNG TIN CÁ NHÂN</Text>
                             
                         </View>
                         <FontAwesome name="angle-right" size={26} color="#1e88e5"/>
@@ -62,8 +62,8 @@ export default class ProfileListItem extends Component {
                 </View>
 
                 <View style={styles.divider}>
-                    <TouchableOpacity>
-                        <ProfileItem name="Hỗ trợ"/>
+                    <TouchableOpacity onPress={ () => this.props.navigation.navigate('Infomation')}>
+                        <ProfileItem name="Thông tin ứng dụng" />
                     </TouchableOpacity>
                 </View>
 
@@ -71,6 +71,7 @@ export default class ProfileListItem extends Component {
                     <Button 
                         title="Sign Out"
                         onPress = {this.handleSignOut}
+                        color='#33CC99'
                     />
                 </View>
             </View>
@@ -111,7 +112,7 @@ const styles = StyleSheet.create({
     avatarContainer:{
         width: 50,
         height: 50,
-        backgroundColor: '#1e88e5',
+        backgroundColor: '#33CC99',
         borderRadius: 25,
         alignItems: 'center',
         justifyContent: 'center',
@@ -123,7 +124,8 @@ const styles = StyleSheet.create({
     },
     welcomeText:{
         color: '#828282',
-        marginBottom: 5
+        marginBottom: 5,
+        fontSize : 20
     },
     authText:{
         fontSize: 18,
