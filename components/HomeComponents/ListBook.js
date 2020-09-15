@@ -1,61 +1,32 @@
 import React, { Component } from 'react';
 import {StyleSheet, View,Image,Dimensions,Text,ScrollView,TouchableOpacity} from 'react-native';
-import sach1 from '../../Image/sach1.png';
-
 
 export default class ListBook extends Component{
 
+    
     render(){
-
+        const {books} = this.props;
         return(
         <ScrollView>
+            
             <View style={styles.container}>
                 <View style={styles.body}>
-                    <View style={styles.itemContainer}>
-                        <Image source={sach1} style={styles.itemImage}/>
-                        <Text style={styles.itemName}>Ten san pham</Text>
+                {books.map( (e) => (
+                    <View style={styles.itemContainer} key={e.id}>
+                        <Image source={e.images} style={styles.itemImage}/>
+                            <Text style={styles.itemName} numberOfLines={1}>{e.name}</Text>
                             <View style={styles.addCart}>
-                                <Text style={styles.itemPrice}>12.000 VND</Text>
+                                <Text style={styles.itemPrice}>{e.price}</Text>
                                 <TouchableOpacity>
                                     <Text style={{color:"red"}}>Mua +</Text>
                                 </TouchableOpacity>
                             </View>
                     </View>
-
-                    <View style={styles.itemContainer}>
-                        <Image source={sach1} style={styles.itemImage}/>
-                        <Text style={styles.itemName}>Ten san pham</Text>
-                            <View style={styles.addCart}>
-                                <Text style={styles.itemPrice}>12.000 VND</Text>
-                                <TouchableOpacity>
-                                    <Text style={{color:"red"}}>Mua +</Text>
-                                </TouchableOpacity>
-                            </View>
-                    </View>
-
-                    <View style={styles.itemContainer}>
-                        <Image source={sach1} style={styles.itemImage}/>
-                        <Text style={styles.itemName}>Ten san pham</Text>
-                            <View style={styles.addCart}>
-                                <Text style={styles.itemPrice}>12.000 VND</Text>
-                                <TouchableOpacity>
-                                    <Text style={{color:"red"}}>Mua +</Text>
-                                </TouchableOpacity>
-                            </View>
-                    </View>
-
-                    <View style={styles.itemContainer}>
-                        <Image source={sach1} style={styles.itemImage}/>
-                        <Text style={styles.itemName}>Ten san pham</Text>
-                            <View style={styles.addCart}>
-                                <Text style={styles.itemPrice}>12.000 VND</Text>
-                                <TouchableOpacity>
-                                    <Text style={{color:"red"}}>Mua +</Text>
-                                </TouchableOpacity>
-                            </View>
-                    </View>
+                ))}
+                    
                 </View>
             </View>
+
         </ScrollView>
         )
     }
@@ -81,7 +52,7 @@ const styles = StyleSheet.create({
     itemContainer : {
         width : itemWidth,
         paddingVertical: 10,
-
+        elevation : 1
     },
     itemImage : {
         width : itemWidth,

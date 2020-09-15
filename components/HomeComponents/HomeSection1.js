@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import {StyleSheet, View,Image,Dimensions,Text,ScrollView} from 'react-native';
 import Swiper from 'react-native-swiper';
-import banner_4 from '../../Image/banner_4.png';
-import banner_2 from '../../Image/banner_2.png';
-import banner_6 from '../../Image/banner_6.png';
 
 const{ width } = Dimensions.get('window');
 const{ height } = Dimensions.get('window');
 
 export default class HomeSection1 extends Component{
 
-    
+
     render(){
-        
+        const {banners} = this.props;
         return(
         <ScrollView>
             <View style = {styles.wrapper}>
@@ -21,9 +18,12 @@ export default class HomeSection1 extends Component{
                 </View>
                 <View style = {{flex : 4}}>
                     <Swiper>
-                        <Image source={banner_6} style={styles.banner}/>
-                        <Image source={banner_2} style={styles.banner}/>
-                        <Image source={banner_4} style={styles.banner}/>
+                        {banners.map( (e,index) => (
+                            <View key={e.id}>
+                                <Image source={e.images} style={styles.banner}/>
+                            </View>
+                            
+                        ))}
                     </Swiper>
                 </View>
             </View>
