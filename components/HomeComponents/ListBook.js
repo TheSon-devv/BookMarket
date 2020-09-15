@@ -13,8 +13,10 @@ export default class ListBook extends Component{
                 <View style={styles.body}>
                 {books.map( (e) => (
                     <View style={styles.itemContainer} key={e.id}>
-                        <Image source={e.images} style={styles.itemImage}/>
-                            <Text style={styles.itemName} numberOfLines={1}>{e.name}</Text>
+                            <TouchableOpacity>
+                                <Image source={e.images} style={styles.itemImage}/>
+                            </TouchableOpacity>
+                            <Text style={styles.itemName} numberOfLines={1}>{e.name.toUpperCase()}</Text>
                             <View style={styles.addCart}>
                                 <Text style={styles.itemPrice}>{e.price}</Text>
                                 <TouchableOpacity>

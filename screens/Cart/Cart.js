@@ -38,7 +38,7 @@ class CartView extends Component {
                             <View style={productController}>
                                 <View style={numberOfProduct}>
                                     <TouchableOpacity>
-                                        <Text>+</Text>
+                                        <Text style={{fontSize : 20}}>+</Text>
                                     </TouchableOpacity>
                                     <Text>{3}</Text>
                                     <TouchableOpacity>
