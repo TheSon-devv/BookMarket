@@ -13,7 +13,7 @@ export default class ListBook extends Component{
                 <View style={styles.body}>
                 {books.map( (e) => (
                     <View style={styles.itemContainer} key={e.id}>
-                            <TouchableOpacity>
+                            <TouchableOpacity >
                                 <Image source={e.images} style={styles.itemImage}/>
                             </TouchableOpacity>
                             <Text style={styles.itemName} numberOfLines={1}>{e.name.toUpperCase()}</Text>
@@ -42,19 +42,17 @@ const itemImageHeight = (itemWidth / 200) * 292;
 const styles = StyleSheet.create({
     container : {
         backgroundColor : '#fff',
-        margin : 15
+        margin : 15,
     },
     body : {
         flexDirection : 'row',
         justifyContent : 'space-around',
         flexWrap : 'wrap',
-
-        elevation : 2
     },
     itemContainer : {
         width : itemWidth,
         paddingVertical: 10,
-        elevation : 1
+
     },
     itemImage : {
         width : itemWidth,
@@ -62,7 +60,8 @@ const styles = StyleSheet.create({
     },
     itemName : {
         fontSize : 16,
-        padding : 5
+        padding : 5,
+        color : '#D58D8D'
     },  
     itemPrice : {
         fontSize : 14,
