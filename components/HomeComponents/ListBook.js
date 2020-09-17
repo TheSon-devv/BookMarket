@@ -10,23 +10,20 @@ export default class ListBook extends Component{
         <ScrollView>
             
             <View style={styles.container}>
-                <View style={styles.body}>
+                <View style={{marginLeft:5,marginVertical:5}}>
+                    <Text style={{fontSize:18,color:'#B57171'}}>Sách Mới Nhất</Text>
+                </View>
+                <ScrollView horizontal={true} style={{flexDirection:'row'}} showsHorizontalScrollIndicator={false}>
                 {books.map( (e) => (
                     <View style={styles.itemContainer} key={e.id}>
                             <TouchableOpacity >
                                 <Image source={e.images} style={styles.itemImage}/>
                             </TouchableOpacity>
                             <Text style={styles.itemName} numberOfLines={1}>{e.name.toUpperCase()}</Text>
-                            <View style={styles.addCart}>
-                                <Text style={styles.itemPrice}>{e.price}</Text>
-                                <TouchableOpacity>
-                                    <Text style={{color:"red"}}>Mua +</Text>
-                                </TouchableOpacity>
-                            </View>
+                            <Text style={styles.itemPrice}>{e.price}</Text>
                     </View>
-                ))}
-                    
-                </View>
+                ))}  
+                </ScrollView>
             </View>
 
         </ScrollView>
@@ -36,40 +33,34 @@ export default class ListBook extends Component{
 
 const{ width } = Dimensions.get('window');
 const{ height } = Dimensions.get('window');
-const itemWidth = ( width - 100 ) / 2;
+const itemWidth = ( width - 200 ) / 2;
 const itemImageHeight = (itemWidth / 200) * 292;
 
 const styles = StyleSheet.create({
     container : {
         backgroundColor : '#fff',
-        margin : 15,
-    },
-    body : {
-        flexDirection : 'row',
-        justifyContent : 'space-around',
-        flexWrap : 'wrap',
+        margin: 10,
+        borderTopWidth: 1,
+        borderTopColor : 'red'
     },
     itemContainer : {
         width : itemWidth,
-        paddingVertical: 10,
-
+        paddingVertical : 5,
+        marginRight : 15
     },
     itemImage : {
         width : itemWidth,
         height : itemImageHeight
     },
     itemName : {
-        fontSize : 16,
+        fontSize : 14,
         padding : 5,
         color : '#D58D8D'
     },  
     itemPrice : {
-        fontSize : 14,
+        fontSize : 12,
         paddingLeft : 5,
         color : 'blue'
     },
-    addCart : {
-        justifyContent : 'space-between',
-        flexDirection : 'row'
-    }
+
 })

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet,View,Text,Button,TextInput,TouchableOpacity, ImageBackground} from 'react-native';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import {StyleSheet,View,Text,Button,TextInput,TouchableOpacity, ImageBackground, Alert} from 'react-native';
 import firebase from '@react-native-firebase/app';
 import background from '../../Image/background.jpg';
 
@@ -13,7 +12,8 @@ export default class Login extends Component{
         firebase
             .auth()
             .signInWithEmailAndPassword(email,password)
-            .then( () => this.props.navigation.navigate('ProfileListItem'))
+            .then( () => this.props.navigation.navigate('Tab'))
+            .then( () => Alert.alert("Đăng nhập thành công !"))
             .catch( error => this.setState( {errorMessage: error.message} ) )
     }
     
@@ -24,11 +24,8 @@ export default class Login extends Component{
                     
                 <ImageBackground source={background} style={styles.image}>
                     <View style={styles.formLogin}>
-                        {this.state.errorMessage && 
-                        <Text style={{color : 'red',}}>
-                            {this.state.errorMessage}
-                        </Text>
-                        }
+                        
+                        
 
                         <Text style={styles.textLogin}>ĐĂNG NHẬP</Text>
 
@@ -49,7 +46,13 @@ export default class Login extends Component{
                             onChangeText ={password => this.setState({password})}
                             value={this.state.password}
                         />
-
+                        <View style={{justifyContent:'center',marginHorizontal:25}}>
+                            {this.state.errorMessage && 
+                            <Text style={{color : 'red',fontSize:20}}>
+                                {this.state.errorMessage}
+                            </Text>
+                            }
+                        </View>
                         <View style={styles.buttonPress}>
                         <TouchableOpacity>
                             <Button

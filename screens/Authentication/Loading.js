@@ -8,7 +8,7 @@ export default class Loading extends Component{
     
     componentDidMount(){
         firebase.auth().onAuthStateChanged(user => {
-            this.props.navigation.navigate(user ? 'ProfileListItem' : 'Login')
+            this.props.navigation.navigate(user ? 'Tab' : 'Login')
         })
     }
 

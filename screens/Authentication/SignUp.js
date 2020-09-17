@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {StyleSheet,View,Text,Button,TextInput, ImageBackground} from 'react-native';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import firebase from '@react-native-firebase/app';
 import auth from '@react-native-firebase/auth';
 import backgroundSignUp from '../../Image/backgroundSignUp.jpg';
@@ -15,7 +14,7 @@ export default class SignUp extends Component{
         firebase
             .auth()
             .createUserWithEmailAndPassword(this.state.email,this.state.password)
-            .then( () => this.props.navigation.navigate('Login'))
+            .then( () => this.props.navigation.navigate('Tab'))
             .catch(error => this.setState( {errorMessage: error.message} )
             )
     }
@@ -80,7 +79,8 @@ const styles = StyleSheet.create({
         borderColor: 'gray',
         borderWidth:0.5,
         marginVertical: 8,
-        borderRadius : 10
+        borderRadius : 10,
+        color : '#fff'
     },
     textSignUp : {
         fontSize : 20,
