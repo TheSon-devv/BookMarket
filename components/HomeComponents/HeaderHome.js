@@ -16,7 +16,7 @@ export default class HeaderHome extends Component{
                 <Text style={{fontSize:20,color:'#fff',fontWeight:'600'}}>BookMarket</Text>
             </View>
             <View style={{flex:1,alignItems:'flex-end',marginRight:10}}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={ () => this.props.navigation.navigate('Infomation')}>
                     <FontAwesome name="book" size={30} color="#555555"/>
                 </TouchableOpacity>
             </View>

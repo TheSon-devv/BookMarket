@@ -31,11 +31,12 @@ export default class HomeScreen extends Component{
 
     render(){
         const {books,banners} = this.state;
+        const {navigation} = this.props;
         return (
             <ScrollView style={styles.container}>
-                <HeaderHome />
+                <HeaderHome navigation={navigation}/>
                 <HomeSection1 banners={banners}/>
-                <ListBook books={books}/>
+                <ListBook books={books} navigation={navigation}/>
                 <ListBook books={books}/>
                 <ListBook books={books}/>
                 <ListBook books={books}/>

@@ -5,7 +5,7 @@ export default class ListBook extends Component{
 
     
     render(){
-        const {books} = this.props;
+        const {books,navigation} = this.props;
         return(
         <ScrollView>
             
@@ -16,7 +16,7 @@ export default class ListBook extends Component{
                 <ScrollView horizontal={true} style={{flexDirection:'row'}} showsHorizontalScrollIndicator={false}>
                 {books.map( (e) => (
                     <View style={styles.itemContainer} key={e.id}>
-                            <TouchableOpacity >
+                            <TouchableOpacity onPress={ () => navigation.navigate('Detail')}>
                                 <Image source={e.images} style={styles.itemImage}/>
                             </TouchableOpacity>
                             <Text style={styles.itemName} numberOfLines={1}>{e.name.toUpperCase()}</Text>
