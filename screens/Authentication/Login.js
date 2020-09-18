@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {StyleSheet,View,Text,Button,TextInput,TouchableOpacity, ImageBackground, Alert} from 'react-native';
+import {StyleSheet,View,Text,Button,TextInput,TouchableOpacity,Image, Alert,Dimensions} from 'react-native';
 import firebase from '@react-native-firebase/app';
-import background from '../../Image/background.jpg';
+import bookLogin from '../../Image/bookLogin.png';
 
 export default class Login extends Component{
 
@@ -12,7 +12,7 @@ export default class Login extends Component{
         firebase
             .auth()
             .signInWithEmailAndPassword(email,password)
-            .then( () => this.props.navigation.navigate('Tab'))
+            .then( () => this.props.navigation.navigate('Drawer'))
             .then( () => Alert.alert("Đăng nhập thành công !"))
             .catch( error => this.setState( {errorMessage: error.message} ) )
     }
@@ -22,16 +22,17 @@ export default class Login extends Component{
         return(
             <View style={styles.container}>
                     
-                <ImageBackground source={background} style={styles.image}>
                     <View style={styles.formLogin}>
                         
-                        
+                        <Image source={bookLogin} style={styles.imageBook}/>
 
-                        <Text style={styles.textLogin}>ĐĂNG NHẬP</Text>
+                        <View style={{marginBottom : 30}}>
+                            <Text style={styles.textLogin}>ĐĂNG NHẬP</Text>
+                        </View>
 
                         <TextInput 
                             placeholder="Email"
-                            placeholderTextColor='#fff'
+                            placeholderTextColor="#171414"
                             autoCapitalize="none"
                             style = {styles.textInput}
                             onChangeText ={email => this.setState({email})}
@@ -40,13 +41,13 @@ export default class Login extends Component{
                         <TextInput 
                             secureTextEntry
                             placeholder="Password"
-                            placeholderTextColor='#fff'
+                            placeholderTextColor="#171414"
                             autoCapitalize="none"
                             style = {styles.textInput}
                             onChangeText ={password => this.setState({password})}
                             value={this.state.password}
                         />
-                        <View style={{justifyContent:'center',marginHorizontal:25}}>
+                        <View style={{justifyContent:'center',marginHorizontal:30}}>
                             {this.state.errorMessage && 
                             <Text style={{color : 'red',fontSize:20}}>
                                 {this.state.errorMessage}
@@ -58,7 +59,7 @@ export default class Login extends Component{
                             <Button
                                 title="Đăng nhập"
                                 onPress={this.handleLogin}
-                                color="red"
+                                color="#BF1010"
                                 
                             />
                         </TouchableOpacity>
@@ -67,43 +68,51 @@ export default class Login extends Component{
                         <Button
                             title="Chưa có tài khoản ? Đăng ký "
                             onPress={ () => this.props.navigation.navigate('SignUp')}
-                            color="red"
+                            color="#BF1010"
                         />
                         </View>
                     </View>
-                </ImageBackground>
             </View>
         )
     }
 }
+const{ width } = Dimensions.get('window');
+const{ height } = Dimensions.get('window');
+const itemWidth = ( width - 280 ) / 2;
+const itemImageHeight = (itemWidth / 300) * 266;
+
 const styles = StyleSheet.create({
     container: {
         flex : 1,
-        flexDirection : 'column',
         backgroundColor : '#FFF',
     },
     formLogin : {
-        alignItems: 'center'
+        alignItems : 'center',
+        marginTop : 50
+    },
+    imageBook : {
+        width : itemWidth,
+        height : itemImageHeight,
+        marginLeft : 20,
+        marginBottom : 30
     },
     textLogin : {
-        fontSize :20,
-        color : '#fff'
+        fontSize :25,
+        color : 'red',
+        fontWeight : 'bold'
     },
     textInput: {
-        height: 40,
-        width: '70%',
+        height: 50,
+        width: '80%',
         borderColor: 'gray',
         borderWidth:0.5,
         marginVertical: 8,
         borderRadius: 10,
-        color:'#fff'
+        fontSize : 16,
+        color : '#000000'
     },
     buttonPress : {
         marginTop : 8,
-    },
-    image: {
-        flex: 1,
-        resizeMode: "cover",
-        justifyContent: "center"
-      },
+        width : '80%',
+    }
 })

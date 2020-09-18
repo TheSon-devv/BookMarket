@@ -8,7 +8,7 @@ export default class HeaderHome extends Component{
         return(
         <View style={styles.headerContainer}>
             <View style={{flex:1,marginLeft:10}}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={ () => this.props.navigation.openDrawer()}>
                     <FontAwesome name="bars" size={30} color="#555555"/>
                 </TouchableOpacity>
             </View>

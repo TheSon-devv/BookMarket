@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {StyleSheet,ScrollView} from 'react-native';
-import HeaderHome from '../../components/HomeComponents/HeaderHome';
+import CustomHeader from '../../components/HomeComponents/CustomHeader';
 import HomeSection1 from '../../components/HomeComponents/HomeSection1';
 import ListBook from '../../components/HomeComponents/ListBook';
 
@@ -34,13 +34,13 @@ export default class HomeScreen extends Component{
         const {navigation} = this.props;
         return (
             <ScrollView style={styles.container}>
-                <HeaderHome navigation={navigation}/>
+                <CustomHeader navigation={navigation}/>
                 <HomeSection1 banners={banners}/>
                 <ListBook books={books} navigation={navigation}/>
-                <ListBook books={books}/>
-                <ListBook books={books}/>
-                <ListBook books={books}/>
-                <ListBook books={books}/>
+                <ListBook books={books} navigation={navigation}/>
+                <ListBook books={books} navigation={navigation}/>
+                <ListBook books={books} navigation={navigation}/>
+                <ListBook books={books} navigation={navigation}/>
             </ScrollView>
         );
     }
