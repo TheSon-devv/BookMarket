@@ -1,13 +1,53 @@
 import React from 'react';
 import { Component } from 'react';
-import {View} from 'react-native';
+import {View,SafeAreaView,StyleSheet,FlatList} from 'react-native';
+import CustomerProduct from '../../components/HomeComponents/CustomerProduct';
+import CategoryProduct from './CategoryProduct';
 
 export default class Product extends Component{
-    render(){
-        return(
-            <View>
+    
+    constructor(props){
+        super(props);
+        this.state={
+            books : []
+        }
+    }
+    componentDidMount(){
+        fetch('https://raw.githubusercontent.com/TheSon-devv/demo/master/db.json')
+        .then((response) => response.json())
+        .then((json) => {
+            const {book} = json;
+            this.setState({books: book});
+        })
+        .catch((error) => console.error(error))
+    }
 
-            </View>
+    render(){
+        const {navigation} = this.props;
+        const {books} = this.state;
+        return(
+            <SafeAreaView style={styles.headerContainer}>
+                <View>
+                    <CustomerProduct navigation={navigation}/>
+                </View>
+                <FlatList 
+                    data={books}
+                    renderItem={({item}) => ( 
+                        <CategoryProduct 
+                            book={item} 
+                            onPress={ () => this.props.navigation.navigate('ProductDetail')}
+
+                        />
+                    )}
+                    keyExtractor={item => `${item.id}`}
+                    showsVerticalScrollIndicator={false}
+                />
+            </SafeAreaView> 
         )
     }
 }
+const styles = StyleSheet.create({
+    headerContainer : {
+        flex : 1
+    }
+})

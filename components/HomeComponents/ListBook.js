@@ -19,7 +19,7 @@ export default class ListBook extends Component{
                             <TouchableOpacity onPress={ () => navigation.navigate('Detail')}>
                                 <Image source={e.images} style={styles.itemImage}/>
                             </TouchableOpacity>
-                            <Text style={styles.itemName} numberOfLines={1}>{e.name.toUpperCase()}</Text>
+                            <Text style={styles.itemName} numberOfLines={1}>{e.nameBook.toUpperCase()}</Text>
                             <Text style={styles.itemPrice}>{e.price}</Text>
                     </View>
                 ))}  

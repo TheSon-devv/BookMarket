@@ -3,22 +3,20 @@ import {StyleSheet,View,Text,TextInput,Button,TouchableOpacity} from 'react-nati
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 
-export default class CustomHeader extends Component{
+export default class CustomerProduct extends Component{
     render(){
         return(
         <View style={styles.headerContainer}>
             <View style={{flex:1,marginLeft:10}}>
                 <TouchableOpacity onPress={ () => this.props.navigation.openDrawer()}>
-                    <FontAwesome name="bars" size={30} color="#555555"/>
+                    <FontAwesome name="bars" size={30} color="#fff"/>
                 </TouchableOpacity>
             </View>
             <View style={{flex:1.5,justifyContent:'center',alignItems:'center'}}>
-                <Text style={{fontSize:20,color:'#fff',fontWeight:'600'}}>BookMarket</Text>
+                <Text style={{fontSize:20,color:'#fff',fontWeight:'600'}}>Sản phẩm</Text>
             </View>
             <View style={{flex:1,alignItems:'flex-end',marginRight:10}}>
-                <TouchableOpacity onPress={ () => this.props.navigation.navigate('Infomation')}>
-                    <FontAwesome name="book" size={30} color="#555555"/>
-                </TouchableOpacity>
+
             </View>
         </View>
         )
@@ -27,7 +25,8 @@ export default class CustomHeader extends Component{
 const styles = StyleSheet.create({
     headerContainer : {
         flexDirection : 'row',
-        backgroundColor : '#0BC99A',
+        backgroundColor : '#F42B2B',
         paddingVertical : 15,
+        marginBottom : 10
     },
 })

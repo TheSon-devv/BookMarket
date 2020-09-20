@@ -4,6 +4,7 @@ import firebase from '@react-native-firebase/app';
 
 
 
+
 export default class Loading extends Component{
     
     componentDidMount(){
@@ -13,7 +14,6 @@ export default class Loading extends Component{
     }
 
     render(){
-
         return(
             <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
                 <Text>Loading</Text>
