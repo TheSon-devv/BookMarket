@@ -49,6 +49,7 @@ export default class Customer extends Component{
 }
 const styles = StyleSheet.create({
     headerContainer : {
-        flex : 1
+        flex : 1,
+        backgroundColor : '#fff'
     }
 })

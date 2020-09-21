@@ -6,11 +6,9 @@ import Contact from './Contact/Contact';
 import SignOut from './SignOut';
 import HomeStack from './HomeScreens/HomeStack';
 import CustomDrawerContent from './CustomDrawerContent';
-import Customer from './Customer/Customer';
-import Product from './Product/Product';
-import Bill from './Bill/Bill';
 import CustomerStack from './Customer/CustomerStack';
 import ProductStack from './Product/ProductStack';
+import BillStack from './Bill/BillStack';
 
 const Drawer = createDrawerNavigator();
 
@@ -41,8 +39,8 @@ export default class DrawerNavigator extends Component{
                         component={ProductStack}
                     />
                     <Drawer.Screen
-                        name="Bill"
-                        component={Bill}
+                        name="BillStack"
+                        component={BillStack}
                     />
                     <Drawer.Screen
                         name="Contact"

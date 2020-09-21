@@ -1,60 +1,54 @@
 import React, { Component } from 'react';
 import {StyleSheet,View,Text,TouchableOpacity} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import CustomerDetailHeader from '../../components/HomeComponents/CustomerDetailHeader';
+import CustomBillDetail from '../../components/HomeComponents/CustomBillDetail';
 
-export default class CustomerDetail extends Component{
+export default class BillDetail extends Component{
     render(){
         
         const {navigation,route}=this.props;
-        const {IdCustomer} = route.params;
+        const {billParams} = route.params;
 
         return(
            <View style={styles.container}>
                 <View>
-                    <CustomerDetailHeader navigation={navigation}/>
+                    <CustomBillDetail navigation={navigation}/>
                 </View>
                 <ScrollView>
-                    <View style={{backgroundColor:'#CCCCCC',paddingLeft:15,paddingVertical:30}} >
-                        <Text style={{fontSize:20,fontWeight:'bold'}}>{IdCustomer.nameCustomer}</Text>
-                    </View>
+
                     <View >
                         <View style={styles.detail}>
-                            <Text style={{fontWeight:'bold'}}>Mã khách hàng : </Text>
-                            <Text >{IdCustomer.id}</Text>
+                            <Text style={{fontWeight:'bold'}}>Mã hóa đơn : </Text>
+                            <Text>{billParams.ma}</Text>
                         </View>
                         <View style={styles.detail}>
-                            <Text style={{fontWeight:'bold'}}>Loại khách : </Text>
-                            <Text>{IdCustomer.sile}</Text>
-                        </View>
-                        <View style={styles.detail}>
-                            <Text style={{fontWeight:'bold'}}>Giới tính : </Text>
-                            <Text>{IdCustomer.sex}</Text>
+                            <Text style={{fontWeight:'bold'}}>Tên khách hàng : </Text>
+                            <Text>{billParams.nameCustomer}</Text>
                         </View>
                         <View style={styles.detail}>
                             <Text style={{fontWeight:'bold'}}>Điện thoại : </Text>
-                            <Text>{IdCustomer.phone}</Text>
+                            <Text>{billParams.phone}</Text>
                         </View>
                         <View style={styles.detail}>
-                            <Text style={{fontWeight:'bold'}}>Địa chỉ : </Text>
-                            <Text>{IdCustomer.address}</Text>
+                            <Text style={{fontWeight:'bold'}}>Sách đã mua : </Text>
+                            <Text>{billParams.nameBook}</Text>
                         </View>
                     </View>
                     <View style={{backgroundColor:'#CCCCCC',paddingVertical:10,paddingLeft:15}} >
-                        <Text style={{fontSize:14,marginBottom:5,fontWeight:'bold'}}>Lịch sử mua hàng</Text>
+                        <Text style={{fontSize:14,marginBottom:5,fontWeight:'bold'}}>Thanh toán</Text>
                     </View>
                     <View >
                         <View style={styles.detail}>
                             <Text style={{fontWeight:'bold'}}>Tổng hóa đơn : </Text>
-                            <Text>{IdCustomer.bill}</Text>
+                            <Text>{billParams.bill}</Text>
                         </View>
                         <View style={styles.detail}>
                             <Text style={{fontWeight:'bold'}}>Tổng số tiền : </Text>
-                            <Text>{IdCustomer.price}</Text>
+                            <Text>{billParams.price}</Text>
                         </View>
                         <View style={styles.detail}>
                             <Text style={{fontWeight:'bold'}}>Ngày mua : </Text>
-                            <Text>{IdCustomer.date}</Text>
+                            <Text>{billParams.date}</Text>
                         </View>
                     </View>
                 </ScrollView>
@@ -73,5 +67,6 @@ const styles = StyleSheet.create({
         padding:15,
         flexDirection:'row',
         borderBottomColor:'#FFCECE',
+        justifyContent : 'space-between'
     }
 })

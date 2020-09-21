@@ -33,7 +33,7 @@ export default class CustomDrawerContent extends Component{
                 <View style={{height:180,justifyContent:'center',alignItems:'center',backgroundColor:'#E06969'}}>
                     <Image source={user} />
                     <View style={{marginVertical : 10}}>
-                        <Text style={{fontSize:16,color:'#fff'}}> Xin chào {currentUser && currentUser.email}!</Text>
+                        <Text style={{fontSize:16,color:'#fff'}}> Xin chào {currentUser && currentUser.email} !</Text>
                     </View>
                 </View>
                 <View style={{borderBottomWidth : 1,borderBottomColor : '#E18080'}}>
@@ -65,7 +65,7 @@ export default class CustomDrawerContent extends Component{
                     </View>
 
                     <View style={{marginVertical : 20}}>
-                        <TouchableOpacity onPress={ () => this.props.navigation.navigate('Bill')} >
+                        <TouchableOpacity onPress={ () => this.props.navigation.navigate('BillStack')} >
                             <View style={{flexDirection:'row'}}>
                                 <Image source={shopping_cart} style={{width:25,height:25,marginHorizontal : 20}}/>
                                 <Text style={{fontSize:16,color:'#3A2828'}}>Hóa đơn</Text>

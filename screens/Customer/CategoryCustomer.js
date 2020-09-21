@@ -14,7 +14,7 @@ export default class CategoryCustomer extends Component{
                         <Text>{customer.nameCustomer}</Text>
                         <Text>Điện thoại : {customer.phone}</Text>
                         <Text style={{color:'#F27575'}}>{customer.sile}</Text>
-                        <Text style={{color:'#F27575'}}>Đã tiêu : {customer.used}</Text>
+                        <Text style={{color:'#F27575'}}>Đã tiêu : {customer.used} - {customer.bill}sp</Text>
                     </View>
                 </View>
             </TouchableOpacity>

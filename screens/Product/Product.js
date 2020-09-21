@@ -32,15 +32,15 @@ export default class Product extends Component{
                 </View>
                 <FlatList 
                     data={books}
-                    renderItem={({item}) => ( 
+                    renderItem={({item,index}) => ( 
                         <CategoryProduct 
                             book={item} 
-                            onPress={ () => this.props.navigation.navigate('ProductDetail')}
-
+                            onPress={ () => this.props.navigation.navigate('ProductDetail', {
+                                bookParams : books[index]
+                            })}
                         />
                     )}
                     keyExtractor={item => `${item.id}`}
-                    showsVerticalScrollIndicator={false}
                 />
             </SafeAreaView> 
         )
