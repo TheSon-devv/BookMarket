@@ -10,7 +10,6 @@ export default class HomeScreen extends Component{
     constructor(props){
         super(props);
         this.state={
-            banners: [],
             books : [],
             isLoading : true
         }
@@ -30,12 +29,12 @@ export default class HomeScreen extends Component{
     }
 
     render(){
-        const {books,banners} = this.state;
+        const {books} = this.state;
         const {navigation} = this.props;
         return (
             <ScrollView style={styles.container}>
                 <CustomHeader navigation={navigation}/>
-                <HomeSection1 banners={banners}/>
+                <HomeSection1 />
                 <ListBook books={books} navigation={navigation}/>
                 <ListBook books={books} navigation={navigation}/>
                 <ListBook books={books} navigation={navigation}/>

@@ -14,9 +14,13 @@ export default class ListBook extends Component{
                     <Text style={{fontSize:18,color:'#B57171'}}>Sách Mới Nhất</Text>
                 </View>
                 <ScrollView horizontal={true} style={{flexDirection:'row'}} showsHorizontalScrollIndicator={false}>
-                {books.map( (e) => (
+                {books.map( (e,index) => (
                     <View style={styles.itemContainer} key={e.id}>
-                            <TouchableOpacity onPress={ () => navigation.navigate('Detail')}>
+                            <TouchableOpacity 
+                                onPress={ () => navigation.navigate('Detail',{
+                                    bookParams : books[index]
+                            })}
+                            >
                                 <Image source={e.images} style={styles.itemImage}/>
                             </TouchableOpacity>
                             <Text style={styles.itemName} numberOfLines={1}>{e.nameBook.toUpperCase()}</Text>

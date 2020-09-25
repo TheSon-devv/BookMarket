@@ -2,7 +2,6 @@ import React from 'react';
 import { Component } from 'react';
 import {SafeAreaView,TouchableOpacity,Text,Image,View} from 'react-native';
 import user from '../Image/user.png';
-import FontAweSome from 'react-native-vector-icons/FontAwesome';
 import firebase from '@react-native-firebase/app';
 import auth from '@react-native-firebase/auth';
 import home from '../Image/home.png';

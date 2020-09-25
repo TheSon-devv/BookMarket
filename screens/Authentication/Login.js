@@ -9,12 +9,22 @@ export default class Login extends Component{
 
     handleLogin = () => {
         const { email,password } = this.state
-        firebase
-            .auth()
-            .signInWithEmailAndPassword(email,password)
-            .then( () => this.props.navigation.navigate('Drawer'))
-            .then( () => Alert.alert("Đăng nhập thành công !"))
-            .catch( error => this.setState( {errorMessage: error.message} ) )
+        if(email == ''){
+            Alert.alert('Vui lòng nhập tên người dùng !');
+        }
+        else if(password == ''){
+            Alert.alert('Vui lòng nhập mật khẩu !');
+        }
+        else{
+            firebase
+                .auth()
+                .signInWithEmailAndPassword(email,password)
+                .then( () => this.props.navigation.navigate('Drawer'))
+                .then( () => Alert.alert("Đăng nhập thành công !"))
+                .catch( error => this.setState( {errorMessage: error.message} ) )
+            return true;
+        }
+        return false;
     }
     
     render(){
@@ -49,7 +59,7 @@ export default class Login extends Component{
                         />
                         <View style={{justifyContent:'center',marginHorizontal:30}}>
                             {this.state.errorMessage && 
-                            <Text style={{color : 'red',fontSize:20}}>
+                            <Text style={{color : 'red',fontSize:18}}>
                                 {this.state.errorMessage}
                             </Text>
                             }

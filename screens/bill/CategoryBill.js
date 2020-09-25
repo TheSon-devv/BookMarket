@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         borderBottomColor:'#CD9999',
     },
     borderImage : {
-        width:50,
+        width:55,
         height:60,
         marginVertical : 20,
         marginLeft : 20,
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         justifyContent:'center'
     },
     detailCustomer : {
-        width : '80%',
+        width : '78%',
         height : 100,
         justifyContent:'center',
         paddingLeft:20

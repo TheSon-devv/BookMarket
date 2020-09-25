@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet,View,Text,Button,TextInput, Dimensions,Image,TouchableOpacity} from 'react-native';
+import {StyleSheet,View,Text,Button,TextInput, Dimensions,Image,TouchableOpacity,Alert} from 'react-native';
 import firebase from '@react-native-firebase/app';
 import auth from '@react-native-firebase/auth';
 import bookLogin from '../../Image/bookLogin.png';
@@ -11,12 +11,23 @@ export default class SignUp extends Component{
         }
 
     handleSignUp = () => {
-        firebase
-            .auth()
-            .createUserWithEmailAndPassword(this.state.email,this.state.password)
-            .then( () => this.props.navigation.navigate('Drawer'))
-            .catch(error => this.setState( {errorMessage: error.message} )
-            )
+        const {email,password} = this.state;
+        if(email == ''){
+            Alert.alert('Vui lòng nhập tên người dùng !');
+        }
+        else if(password == ''){
+            Alert.alert('Vui lòng nhập mật khẩu !');
+        }
+        else{
+            firebase
+                .auth()
+                .createUserWithEmailAndPassword(this.state.email,this.state.password)
+                .then( () => Alert.alert("Đăng ký thành công !"))
+                .then( () => this.props.navigation.navigate('Drawer'))
+                .catch(error => this.setState( {errorMessage: error.message} ) )
+            return true;
+        }
+        return false;
     }
     render(){
 
@@ -50,7 +61,7 @@ export default class SignUp extends Component{
                         />
                         <View style={{justifyContent:'center',marginHorizontal:30}}>
                             {this.state.errorMessage && 
-                            <Text style={{color : 'red',fontSize:20}}>
+                            <Text style={{color : 'red',fontSize:18}}>
                                 {this.state.errorMessage}
                             </Text>
                             }
