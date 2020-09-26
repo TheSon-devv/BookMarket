@@ -19,7 +19,7 @@ export default class HomeStack extends Component {
             <StackHome.Navigator initialRouteName="HomeScreen">
                 <StackHome.Screen name="HomeScreen" component={HomeScreen} options={navOptionHandler}/>
                 <StackHome.Screen name="Detail" component={Detail} options={navOptionHandler}/>
-                <StackHome.Screen name="Cart" component={Cart} />
+                <StackHome.Screen name="Cart" component={Cart} options={{title:'Giỏ hàng'}}/>
                 <StackHome.Screen name="Infomation" component={Infomation} options={{title:'Thông tin ứng dụng'}}/>
             </StackHome.Navigator>
         )

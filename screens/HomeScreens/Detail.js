@@ -9,7 +9,7 @@ export default class Detail extends Component {
         const {bookParams} = route.params;
         return(
             <View style={{backgroundColor:"#fff"}}>
-                <TouchableOpacity style={{margin : 10}} onPress={ () => this.props.navigation.goBack()}>
+                <TouchableOpacity style={{marginVertical: 10,marginLeft:18}} onPress={ () => this.props.navigation.goBack()}>
                     <FontAwesome name="angle-left" size={35} color="red"/>
                 </TouchableOpacity>
                 <View style={styles.nameBook}>

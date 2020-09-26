@@ -10,7 +10,7 @@ export default class Login extends Component{
     handleLogin = () => {
         const { email,password } = this.state
         if(email == ''){
-            Alert.alert('Vui lòng nhập tên người dùng !');
+            Alert.alert('Vui lòng nhập email !');
         }
         else if(password == ''){
             Alert.alert('Vui lòng nhập mật khẩu !');

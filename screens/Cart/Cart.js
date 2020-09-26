@@ -8,10 +8,7 @@ import sach1 from '../../Image/sach1.png';
 
 
 class CartView extends Component {
-    gotoDetail() {
-        const { navigator } = this.props;
-        navigator.push({ name: 'PRODUCT_DETAIL' });
-    }
+
     render() {
         const { main, checkoutButton, checkoutTitle, wrapper,
         product, mainRight, productController,
@@ -37,9 +34,9 @@ class CartView extends Component {
                                     <TouchableOpacity>
                                         <Text style={{fontSize : 20}}>+</Text>
                                     </TouchableOpacity>
-                                    <Text>{3}</Text>
+                                    <Text style={{fontSize : 20}}>{3}</Text>
                                     <TouchableOpacity>
-                                        <Text>-</Text>
+                                    <Text style={{fontSize : 20}}>-</Text>
                                     </TouchableOpacity>
                                 </View>
                                 <TouchableOpacity style={showDetailContainer}>
