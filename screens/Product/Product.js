@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import {View,SafeAreaView,StyleSheet,FlatList, ActivityIndicator} from 'react-native';
+import {View,SafeAreaView,StyleSheet,FlatList, ActivityIndicator,RefreshControl} from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import CustomerProduct from '../../components/HomeComponents/CustomerProduct';
 import CategoryProduct from './CategoryProduct';
@@ -14,32 +14,45 @@ export default class Product extends Component{
             books : [],
             dataSearchs : [],
             isLoading : true,
-            query : ""
+            query : "",
+            refreshing : false
         }
     }
-    componentDidMount(){
-        fetch('https://raw.githubusercontent.com/TheSon-devv/demo/master/db.json')
-        .then((response) => response.json())
-        .then((json) => {
-            const {book,dataSearch} = json;
-            this.setState({books: book, dataSearchs : dataSearch});
-        })
-        .catch((error) => console.error(error))
-        .finally( () => {
-            this.setState({isLoading:false});
-        })
+
+
+    refreshData = () => {
+        this.setState({refreshing : true});
+        fetch('https://my-json-server.typicode.com/TheSon-devv/demo/db')       
+            .then((response) => response.json())
+            .then((json) => {
+                const {book} = json;
+                this.setState({books: book});
+                this.setState({refreshing : false});
+            })
+            .catch((error) => {
+                console.error(error);
+                this.setState({refreshing : false});
+            })
+    }
+    
+    onRefresh = () => {
+        this.refreshData();
     }
 
-    handleSearch = (text) => {
-        const formattedQuery = text.toLowerCase();
-        const dataSearch = _.filter(this.state.dataSearchs, book => {
-            if (book.nameBook.includes(formattedQuery)) {
-                return true
-            }
-            return false
-        })
-        this.setState({ dataSearch, query : text})
+    componentDidMount(){
+        this.refreshData();
     }
+
+    // handleSearch = (text) => {
+    //     const formattedQuery = text.toLowerCase();
+    //     const dataSearch = _.filter(this.state.dataSearchs, book => {
+    //         if (book.nameBook.includes(formattedQuery)) {
+    //             return true
+    //         }
+    //         return false
+    //     })
+    //     this.setState({ dataSearch, query : text})
+    // }
 
     render(){
         const {navigation} = this.props;
@@ -50,12 +63,12 @@ export default class Product extends Component{
                     <CustomerProduct navigation={navigation}/>
                 </View>
 
-                <TextInput 
+                {/* <TextInput 
                     placeholder="Nhập sách cần tìm ... "
                     style={{borderWidth:1,marginHorizontal:5,borderRadius:10}}
                     onChangeText={this.handleSearch}
                     value={this.state.query}
-                />
+                /> */}
                 <FlatList 
                     data={books}
                     renderItem={({item,index}) => ( 
@@ -67,6 +80,11 @@ export default class Product extends Component{
                         />
                     )}
                     keyExtractor={item => `${item.id}`}
+                    refreshControl = { 
+                        <RefreshControl 
+                            refreshing={this.state.refreshing}
+                            onRefresh={this.onRefresh}
+                        />}
                 />
             </SafeAreaView> 
         )

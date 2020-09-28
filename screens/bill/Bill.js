@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import {View,SafeAreaView,StyleSheet,FlatList} from 'react-native';
+import {View,SafeAreaView,StyleSheet,FlatList,RefreshControl} from 'react-native';
 import CustomBill from '../../components/HomeComponents/CustomBill';
 import CategoryBill from './CategoryBill';
 
@@ -9,17 +9,31 @@ export default class Bill extends Component{
     constructor(props){
         super(props);
         this.state={
-            bills : []
+            bills : [],
+            refreshing : false
         }
     }
     componentDidMount(){
-        fetch('https://raw.githubusercontent.com/TheSon-devv/demo/master/db.json')
+        this.refreshData();
+    }
+
+    refreshData = () => {
+        this.setState({refreshing : true});
+        fetch('https://my-json-server.typicode.com/TheSon-devv/demo/db')       
         .then((response) => response.json())
         .then((json) => {
             const {bill} = json;
             this.setState({bills: bill});
+            this.setState({refreshing : false});
         })
-        .catch((error) => console.error(error))
+        .catch((error) => {
+            console.error(error);
+            this.setState({refreshing : false});
+        })
+    }
+
+    onRefresh = () => {
+        this.refreshData();
     }
 
     render(){
@@ -41,6 +55,11 @@ export default class Bill extends Component{
                         />
                     )}
                     keyExtractor={item => `${item.id}`}
+                    refreshControl = { 
+                        <RefreshControl 
+                            refreshing={this.state.refreshing}
+                            onRefresh={this.onRefresh}
+                        />}
                 />
             </SafeAreaView>
         )

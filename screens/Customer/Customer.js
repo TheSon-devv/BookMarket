@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
-import {View,StyleSheet,SafeAreaView,FlatList,Text,Modal,TouchableHighlight,TextInput} from 'react-native';
+import {View,StyleSheet,SafeAreaView,FlatList,Text,Modal,TouchableHighlight,TextInput,RefreshControl} from 'react-native';
 import CustomerHeader from '../../components/HomeComponents/CustomerHeader';
 import CategoryCustomer from './CategoryCustomer';
 
@@ -13,17 +13,30 @@ export default class Customer extends Component{
             customers : [],
             modalVisible: false,
             name : '',
-            phone : ''
+            phone : '',
+            refreshing : false
         }
     }
     componentDidMount(){
-        fetch('https://raw.githubusercontent.com/TheSon-devv/demo/master/db.json')
+        this.refreshData();
+    }
+
+    refreshData = () => {
+        this.setState({refreshing : true});
+        fetch('https://my-json-server.typicode.com/TheSon-devv/demo/db')       
         .then((response) => response.json())
         .then((json) => {
             const {customer} = json;
             this.setState({customers: customer});
+            this.setState({refreshing : false});
         })
-        .catch((error) => console.error(error))
+        .catch((error) => {
+            console.error(error);
+            this.setState({refreshing : false});
+        })
+    }
+    onRefresh = () => {
+        this.refreshData();
     }
 
     setModalVisible = (visible) => {
@@ -96,6 +109,11 @@ export default class Customer extends Component{
                         />
                     )}
                     keyExtractor={item => `${item.id}`}
+                    refreshControl = { 
+                        <RefreshControl 
+                            refreshing={this.state.refreshing}
+                            onRefresh={this.onRefresh}
+                        />}
                 />
             </SafeAreaView>
         )
