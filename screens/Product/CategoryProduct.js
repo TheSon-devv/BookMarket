@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import {StyleSheet,View,Text,TouchableOpacity,Image,Dimensions} from 'react-native';
+import sach1 from '../../Image/sach1.png';
 
 export default class CategoryProduct extends Component{
+
     render(){
         const {book,onPress}=this.props;
         return(
             <TouchableOpacity onPress={onPress}>
                 <View style={styles.container} key={book.id}>
                     <View style={styles.borderImage}>
-                        <Image source={book.images} style={styles.image}/>
+                        <Image source={{uri : book.imgBook}} style={styles.image}/>
                     </View>
                     <View style={styles.detailCustomer}>
                         <View style={{marginBottom:50}}>

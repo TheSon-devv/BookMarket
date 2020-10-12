@@ -11,7 +11,7 @@ export default class CategoryBill extends Component{
 
                     <View style={styles.borderImage}>
                         <FontAwesome name="folder" size={30}/>
-                        <Text style={{fontSize:12}}>{bill.ma}</Text>
+                        <Text style={{fontSize:10}}>{bill.ma}</Text>
                     </View>
                     <View style={styles.detailCustomer}>
                         <View style={{flexDirection:'row',justifyContent:'space-between',marginBottom:10}}>

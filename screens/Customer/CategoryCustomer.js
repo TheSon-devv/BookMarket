@@ -11,9 +11,9 @@ export default class CategoryCustomer extends Component{
                         <Text style={{marginTop:7,color:'#fff',fontSize : 30}}>{customer.acronymName}</Text>
                     </View>
                     <View style={styles.detailCustomer}>
-                        <Text>{customer.nameCustomer}</Text>
+                        <Text>{customer.name}</Text>
                         <Text>Điện thoại : {customer.phone}</Text>
-                        <Text style={{color:'#F27575'}}>{customer.sile}</Text>
+                        <Text style={{color:'#F27575'}}>Loại khách : {customer.sile}</Text>
                         <Text style={{color:'#F27575'}}>Đã tiêu : {customer.used} - {customer.bill}sp</Text>
                     </View>
                 </View>

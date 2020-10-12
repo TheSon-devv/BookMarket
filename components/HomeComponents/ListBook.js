@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         color : '#D58D8D'
     },  
     itemPrice : {
-        fontSize : 12,
+        fontSize : 10,
         paddingLeft : 5,
         color : 'blue'
     },
