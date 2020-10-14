@@ -65,7 +65,7 @@ export default class Product extends Component{
                     'Content-Type': 'application/json; charset = utf-8'
                 },
                 body: JSON.stringify({
-                    id: 0,
+                    idBook: 0,
                     nameBook: this.state.nameValue,
                     price: this.state.priceValue,
                     exist : this.state.existValue,
@@ -174,7 +174,7 @@ export default class Product extends Component{
                             })}
                         />
                     )}
-                    keyExtractor={item => `${item.id}`}
+                    keyExtractor={item => `${item.idBook}`}
                     refreshControl = { 
                         <RefreshControl 
                             refreshing={this.state.refreshing}
@@ -229,8 +229,8 @@ const styles = StyleSheet.create({
     },
     textInput : {
         width: 300, 
-        borderWidth: 1, 
-        borderRadius: 50, 
+        borderBottomWidth : 1,
+        borderBottomColor : 'red',
         paddingHorizontal: 10, 
         marginBottom: 10
     }

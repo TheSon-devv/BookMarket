@@ -44,8 +44,8 @@ export default class CustomerDetail extends Component {
                 'Content-Type': 'application/json; charset = utf-8'
             },
             body : JSON.stringify({
-                id: idValue,
-                name: this.state.nameValue,
+                idCustomer: idValue,
+                nameCustomer: this.state.nameValue,
                 phone: this.state.phoneValue,
                 address : this.state.addressValue,
                 sex : this.state.sexValue,
@@ -68,7 +68,7 @@ export default class CustomerDetail extends Component {
 
     render() {
         const { navigation, route } = this.props;
-        const { IdCustomer } = route.params;
+        const { CustomerParams } = route.params;
         const {modalVisible, nameValue, phoneValue ,addressValue , sexValue , sileValue} = this.state;
 
         return (
@@ -80,28 +80,28 @@ export default class CustomerDetail extends Component {
                 <ScrollView>
 
                     <View style={{ backgroundColor: '#CCCCCC', paddingLeft: 15, paddingVertical: 30 }} >
-                        <Text style={{ fontSize: 20, fontWeight: 'bold' }}>{IdCustomer.name}</Text>
+                        <Text style={{ fontSize: 20, fontWeight: 'bold' }}>{CustomerParams.nameCustomer}</Text>
                     </View>
                     <View >
                         <View style={styles.detail}>
                             <Text style={{ fontWeight: 'bold' }}>Mã khách hàng : </Text>
-                            <Text >{IdCustomer.id}</Text>
+                            <Text >{CustomerParams.idCustomer}</Text>
                         </View>
                         <View style={styles.detail}>
                             <Text style={{ fontWeight: 'bold' }}>Loại khách : </Text>
-                            <Text>{IdCustomer.sile}</Text>
+                            <Text>{CustomerParams.sile}</Text>
                         </View>
                         <View style={styles.detail}>
                             <Text style={{ fontWeight: 'bold' }}>Giới tính : </Text>
-                            <Text>{IdCustomer.sex}</Text>
+                            <Text>{CustomerParams.sex}</Text>
                         </View>
                         <View style={styles.detail}>
                             <Text style={{ fontWeight: 'bold' }}>Điện thoại : </Text>
-                            <Text>{IdCustomer.phone}</Text>
+                            <Text>{CustomerParams.phone}</Text>
                         </View>
                         <View style={styles.detail}>
                             <Text style={{ fontWeight: 'bold' }}>Địa chỉ : </Text>
-                            <Text>{IdCustomer.address}</Text>
+                            <Text>{CustomerParams.address}</Text>
                         </View>
                     </View>
                     <View style={{ backgroundColor: '#CCCCCC', paddingVertical: 10, paddingLeft: 15 }} >
@@ -110,15 +110,15 @@ export default class CustomerDetail extends Component {
                     <View >
                         <View style={styles.detail}>
                             <Text style={{ fontWeight: 'bold' }}>Tổng hóa đơn : </Text>
-                            <Text>{IdCustomer.bill}</Text>
+                            <Text>{CustomerParams.bill}</Text>
                         </View>
                         <View style={styles.detail}>
                             <Text style={{ fontWeight: 'bold' }}>Tổng số tiền : </Text>
-                            <Text>{IdCustomer.price}</Text>
+                            <Text>{CustomerParams.price}</Text>
                         </View>
                         <View style={styles.detail}>
                             <Text style={{ fontWeight: 'bold' }}>Ngày mua : </Text>
-                            <Text>{IdCustomer.date}</Text>
+                            <Text>{CustomerParams.date}</Text>
                         </View>
                     </View>
                 </ScrollView>
@@ -173,7 +173,7 @@ export default class CustomerDetail extends Component {
                                     <TouchableHighlight
                                         style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
                                         onPress={() => {
-                                            this.editCustomer(IdCustomer.id);
+                                            this.editCustomer(CustomerParams.idCustomer);
                                         }}
                                     >
                                         <Text style={styles.textStyle}>Sửa</Text>
@@ -212,7 +212,7 @@ export default class CustomerDetail extends Component {
                         <Button
                             style={{ backgroundColor: '#DD5144' }}
                             onPress={() => { 
-                                this.deleteCustomer(IdCustomer.id);
+                                this.deleteCustomer(CustomerParams.idCustomer);
                                 Alert.alert('Đã xóa khách hàng !');
                                 this.props.navigation.goBack();
                             }}
@@ -265,8 +265,8 @@ const styles = StyleSheet.create({
     },
     textInput : {
         width: 300, 
-        borderWidth: 1, 
-        borderRadius: 50, 
+        borderBottomWidth : 1,
+        borderBottomColor : 'red',
         paddingHorizontal: 10, 
         marginBottom: 10
     }

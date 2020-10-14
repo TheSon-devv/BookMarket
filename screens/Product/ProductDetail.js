@@ -45,7 +45,7 @@ export default class ProductDetail extends Component {
                 'Content-Type': 'application/json; charset = utf-8'
             },
             body: JSON.stringify({
-                id: idValue,
+                idBook: idValue,
                 nameBook: this.state.nameValue,
                 price: this.state.priceValue,
                 exist: this.state.existValue,
@@ -81,7 +81,7 @@ export default class ProductDetail extends Component {
                         <View>
                             <View style={styles.detail}>
                                 <Text style={{ fontWeight: 'bold' }}>Mã sách : </Text>
-                                <Text>{bookParams.id}</Text>
+                                <Text>{bookParams.idBook}</Text>
                             </View>
                             <View style={styles.detail}>
                                 <Text style={{ fontWeight: 'bold' }}>Tên sách : </Text>
@@ -162,7 +162,7 @@ export default class ProductDetail extends Component {
                                     <TouchableHighlight
                                         style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
                                         onPress={() => {
-                                            this.editBook(bookParams.id);
+                                            this.editBook(bookParams.idBook);
                                         }}
                                     >
                                         <Text style={styles.textStyle}>Sửa</Text>
@@ -201,7 +201,7 @@ export default class ProductDetail extends Component {
                         <Button
                             style={{ backgroundColor: '#DD5144' }}
                             onPress={() => {
-                                this.deleteBook(bookParams.id);
+                                this.deleteBook(bookParams.idBook);
                                 Alert.alert('Đã xóa sách !');
                                 this.props.navigation.goBack();
                             }}
@@ -255,8 +255,8 @@ const styles = StyleSheet.create({
     },
     textInput : {
         width: 300, 
-        borderWidth: 1, 
-        borderRadius: 50, 
+        borderBottomWidth : 1,
+        borderBottomColor : 'red',
         paddingHorizontal: 10, 
         marginBottom: 10
     }

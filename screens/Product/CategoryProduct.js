@@ -8,7 +8,7 @@ export default class CategoryProduct extends Component{
         const {book,onPress}=this.props;
         return(
             <TouchableOpacity onPress={onPress}>
-                <View style={styles.container} key={book.id}>
+                <View style={styles.container} key={book.maBook}>
                     <View style={styles.borderImage}>
                         <Image source={{uri : book.imgBook}} style={styles.image}/>
                     </View>

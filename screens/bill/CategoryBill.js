@@ -11,14 +11,14 @@ export default class CategoryBill extends Component{
 
                     <View style={styles.borderImage}>
                         <FontAwesome name="folder" size={30}/>
-                        <Text style={{fontSize:10}}>{bill.ma}</Text>
+                        <Text style={{fontSize:10}}>{bill.maBill}</Text>
                     </View>
                     <View style={styles.detailCustomer}>
                         <View style={{flexDirection:'row',justifyContent:'space-between',marginBottom:10}}>
-                            <Text style={{fontSize:18,color:'green'}}>{bill.price}</Text>
+                            <Text style={{fontSize:18,color:'green'}}>{bill.price} VND</Text>
                             <Text>{bill.time}</Text>
                         </View>
-                        <Text>{bill.nameCustomer} - {bill.phone}</Text>
+                        <Text>{bill.nameCustomer} </Text>
                     </View>
                 </View>
             </TouchableOpacity>

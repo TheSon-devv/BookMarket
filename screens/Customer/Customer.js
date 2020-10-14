@@ -63,8 +63,8 @@ export default class Customer extends Component {
                     'Content-Type': 'application/json; charset = utf-8'
                 },
                 body: JSON.stringify({
-                    id: 0,
-                    name: this.state.nameValue,
+                    idCustomer: 0,
+                    nameCustomer: this.state.nameValue,
                     phone: this.state.phoneValue,
                     address : this.state.addressValue,
                     sex : this.state.sexValue,
@@ -168,11 +168,11 @@ export default class Customer extends Component {
                         <CategoryCustomer
                             customer={item}
                             onPress={() => this.props.navigation.navigate('CustomerDetail', {
-                                IdCustomer: customers[index]
+                                CustomerParams: customers[index]
                             })}
                         />
                     )}
-                    keyExtractor={item => `${item.id}`}
+                    keyExtractor={item => `${item.idCustomer}`}
                     refreshControl={
                         <RefreshControl
                             refreshing={this.state.refreshing}
@@ -228,8 +228,8 @@ const styles = StyleSheet.create({
     },
     textInput : {
         width: 300, 
-        borderWidth: 1, 
-        borderRadius: 50, 
+        borderBottomWidth : 1,
+        borderBottomColor : 'red',
         paddingHorizontal: 10, 
         marginBottom: 10
     }
