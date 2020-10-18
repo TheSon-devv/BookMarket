@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {StyleSheet, View,Image,Dimensions,Text,ScrollView,TouchableOpacity} from 'react-native';
 
-export default class ListBook extends Component{
+export default class ListBook3 extends Component{
 
     
     render(){
@@ -11,7 +11,7 @@ export default class ListBook extends Component{
             
             <View style={styles.container}>
                 <View style={{marginLeft:5,marginVertical:5}}>
-                    <Text style={{fontSize:18,color:'#B57171'}}>Sách Mới Nhất</Text>
+                    <Text style={{fontSize:18,color:'#B57171'}}>Sách Thiếu Nhi</Text>
                 </View>
                 <ScrollView horizontal={true} style={{flexDirection:'row'}} showsHorizontalScrollIndicator={false}>
                 {books.map( (e,index) => (
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
         height : itemImageHeight
     },
     itemName : {
-        fontSize : 14,
+        fontSize : 11,
         padding : 5,
         color : '#D58D8D'
     },  

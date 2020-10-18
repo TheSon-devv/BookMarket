@@ -25,7 +25,7 @@ export default class Product extends Component{
 
     refreshData = () => {
         this.setState({refreshing : true});
-        fetch('http://192.168.0.101:3000/employdb/book')       
+        fetch('http://192.168.43.36:3000/employdb/book')       
             .then((response) => response.json())
             .then((json) => {
                 this.setState({books: json});
@@ -57,7 +57,7 @@ export default class Product extends Component{
             Alert.alert('Vui lòng nhập giá bán !');
         }
         else {
-            fetch('http://192.168.0.101:3000/employdb/book', {
+            fetch('http://192.168.43.36:3000/employdb/book', {
                 method: 'POST',
                 cache: 'no-cache',
                 headers: {

@@ -27,7 +27,7 @@ export default class Bill extends Component{
 
     refreshData = () => {
         this.setState({refreshing : true});
-        fetch('http://192.168.0.101:3000/employdb/bill')       
+        fetch('http://192.168.0.115:3000/employdb/bill')       
         .then((response) => response.json())
         .then((json) => {
             this.setState({bills: json});
@@ -45,7 +45,7 @@ export default class Bill extends Component{
     addBill= () => {
         const { maBillValue, idCustomerValue ,idBookValue,modalVisible} = this.state
         if (maBillValue == '') {
-            Alert.alert('Vui lòng nhập má hóa đơn !');
+            Alert.alert('Vui lòng nhập mã hóa đơn !');
         }
         else if (idCustomerValue == '') {
             Alert.alert('Vui lòng nhập mã khách hàng !');
@@ -54,7 +54,7 @@ export default class Bill extends Component{
             Alert.alert('Vui lòng nhập mã sách !');
         }
         else {
-            fetch('http://192.168.0.101:3000/employdb/bill', {
+            fetch('http://192.168.0.11:3000/employdb/bill', {
                 method: 'POST',
                 cache: 'no-cache',
                 headers: {
@@ -73,11 +73,12 @@ export default class Bill extends Component{
                 .then((response) => response.json())
                 .then((json) => {
                     console.log(json);
+                    Alert.alert('Đã thêm hóa đơn !');
                 })
                 .catch((error) => {
                     console.error(error);
                 })
-            Alert.alert('Đã thêm hóa đơn !');
+            Alert.alert('Thêm thất bại!');
             this.setModalVisible(!modalVisible);
         }
     }
@@ -95,7 +96,7 @@ export default class Bill extends Component{
                 </View>
                 <View style={styles.centeredView}>
                     <Modal
-                        animationType="slide"
+                        animationType="fade"
                         transparent={true}
                         visible={modalVisible}
                         onRequestClose={() => {

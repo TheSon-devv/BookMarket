@@ -27,7 +27,7 @@ export default class Customer extends Component {
 
     refreshData = () => {
         this.setState({ refreshing: true });
-        fetch('http://192.168.0.101:3000/employdb/customer')
+        fetch('http://192.168.43.36:3000/employdb/customer')
             .then((response) => response.json())
             .then((json) => {
                 this.setState({ customers: json });
@@ -55,7 +55,7 @@ export default class Customer extends Component {
             Alert.alert('Vui lòng nhập số điện thoại !');
         }
         else {
-            fetch('http://192.168.0.101:3000/employdb/customer', {
+            fetch('http://192.168.43.36:3000/employdb/customer', {
                 method: 'POST',
                 cache: 'no-cache',
                 headers: {

@@ -20,7 +20,7 @@ export default class CustomerDetail extends Component {
     } 
     
     deleteCustomer = (id) => {
-        fetch(`http://192.168.0.101:3000/employdb/customer/${id}`, {
+        fetch(`http://192.168.43.36:3000/employdb/customer/${id}`, {
             method: 'DELETE',
             headers: {
                 Accept: 'application/json',
@@ -37,7 +37,7 @@ export default class CustomerDetail extends Component {
     }
     editCustomer = (idValue) => {
         const {modalVisible} = this.state
-        fetch(`http://192.168.0.101:3000/employdb/customer`,{
+        fetch(`http://192.168.43.36:3000/employdb/customer`,{
             method : 'PUT',
             headers : {
                 Accept: 'application/json',

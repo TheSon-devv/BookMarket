@@ -88,7 +88,7 @@ export default class Login extends Component{
 }
 const{ width } = Dimensions.get('window');
 const{ height } = Dimensions.get('window');
-const itemWidth = ( width - 280 ) / 2;
+const itemWidth = ( width - 200 ) / 2;
 const itemImageHeight = (itemWidth / 300) * 266;
 
 const styles = StyleSheet.create({

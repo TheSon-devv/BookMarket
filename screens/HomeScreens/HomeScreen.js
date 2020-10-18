@@ -2,15 +2,18 @@ import React, { Component } from 'react';
 import {StyleSheet,ScrollView} from 'react-native';
 import CustomHeader from '../../components/HomeComponents/CustomHeader';
 import HomeSection1 from '../../components/HomeComponents/HomeSection1';
-import ListBook from '../../components/HomeComponents/ListBook';
-
+import ListBook1 from '../../components/HomeComponents/ListBook1';
+import ListBook2 from '../../components/HomeComponents/ListBook2';
+import ListBook3 from '../../components/HomeComponents/ListBook3';
 
 export default class HomeScreen extends Component{
 
     constructor(props){
         super(props);
         this.state={
-            books : [],
+            book1 : [],
+            book2 : [],
+            book3 : [],
             isLoading : true
         }
     }
@@ -19,8 +22,8 @@ export default class HomeScreen extends Component{
         fetch('https://raw.githubusercontent.com/TheSon-devv/demo/master/db.json')
         .then((response) => response.json())
         .then( (json) => {
-            const { banner,book } = json;
-            this.setState({banners : banner,books : book});
+            const {book1,book2,book3} = json;
+            this.setState({book1 : book1,book2 : book2,book3 : book3,});
         })
         .catch((error) => console.error(error))
         .finally( () => {
@@ -29,17 +32,15 @@ export default class HomeScreen extends Component{
     }
 
     render(){
-        const {books} = this.state;
+        const {book1,book2,book3} = this.state;
         const {navigation} = this.props;
         return (
             <ScrollView style={styles.container}>
                 <CustomHeader navigation={navigation}/>
                 <HomeSection1 />
-                <ListBook books={books} navigation={navigation}/>
-                <ListBook books={books} navigation={navigation}/>
-                <ListBook books={books} navigation={navigation}/>
-                <ListBook books={books} navigation={navigation}/>
-                <ListBook books={books} navigation={navigation}/>
+                <ListBook1 books={book1} navigation={navigation}/>
+                <ListBook2 books={book2} navigation={navigation}/>
+                <ListBook3 books={book3} navigation={navigation}/>
             </ScrollView>
         );
     }

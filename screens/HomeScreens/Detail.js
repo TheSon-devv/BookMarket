@@ -34,9 +34,9 @@ export default class Detail extends Component {
                     <View style={{marginVertical:5}}>
                         <Text style={{fontSize : 18,fontWeight:'500'}}>Giới thiệu</Text>
                     </View>
-                    <Text style={{textAlign:'justify'}} numberOfLines={8}>{bookParams.intro}</Text>
+                    <Text style={{textAlign:'justify'}} numberOfLines={8}>{bookParams.detail}</Text>
                     <View style={{marginTop : 10}}>
-                        <Text>Thể loại : Khoa học - Viễn tưởng</Text>
+                        <Text>Thể loại : </Text>
                         <Text>Lượt xem : 0</Text>
                         <Text>Trạng thái : Hoàn thành </Text>
                     </View>
