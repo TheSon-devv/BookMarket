@@ -6,6 +6,7 @@ import CategoryCustomer from './CategoryCustomer';
 import { Fab } from 'native-base';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
+const url = 'http://192.168.0.115:3000/employdb/customer/';
 export default class Customer extends Component {
 
     constructor(props) {
@@ -27,7 +28,7 @@ export default class Customer extends Component {
 
     refreshData = () => {
         this.setState({ refreshing: true });
-        fetch('http://192.168.43.36:3000/employdb/customer')
+        fetch(url)
             .then((response) => response.json())
             .then((json) => {
                 this.setState({ customers: json });
@@ -41,7 +42,7 @@ export default class Customer extends Component {
     onRefresh = () => {
         this.refreshData();
     }
-
+    
     setModalVisible = (visible) => {
         this.setState({ modalVisible: visible });
     }
@@ -55,7 +56,7 @@ export default class Customer extends Component {
             Alert.alert('Vui lòng nhập số điện thoại !');
         }
         else {
-            fetch('http://192.168.43.36:3000/employdb/customer', {
+            fetch(url, {
                 method: 'POST',
                 cache: 'no-cache',
                 headers: {

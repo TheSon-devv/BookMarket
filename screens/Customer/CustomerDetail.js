@@ -4,6 +4,7 @@ import CustomerDetailHeader from '../../components/HomeComponents/CustomerDetail
 import { Button, Fab } from 'native-base';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
+const url = 'http://192.168.0.115:3000/employdb/customer/';
 export default class CustomerDetail extends Component {
 
     constructor(props) {
@@ -20,7 +21,7 @@ export default class CustomerDetail extends Component {
     } 
     
     deleteCustomer = (id) => {
-        fetch(`http://192.168.43.36:3000/employdb/customer/${id}`, {
+        fetch(url + `${id}`, {
             method: 'DELETE',
             headers: {
                 Accept: 'application/json',
@@ -37,7 +38,7 @@ export default class CustomerDetail extends Component {
     }
     editCustomer = (idValue) => {
         const {modalVisible} = this.state
-        fetch(`http://192.168.43.36:3000/employdb/customer`,{
+        fetch(url,{
             method : 'PUT',
             headers : {
                 Accept: 'application/json',

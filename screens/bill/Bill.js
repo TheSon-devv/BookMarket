@@ -6,6 +6,7 @@ import CategoryBill from './CategoryBill';
 import { Fab } from 'native-base';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
+const url = 'http://192.168.0.115:3000/employdb/bill';
 export default class Bill extends Component{
 
     constructor(props){
@@ -27,7 +28,7 @@ export default class Bill extends Component{
 
     refreshData = () => {
         this.setState({refreshing : true});
-        fetch('http://192.168.0.101:3000/employdb/bill')       
+        fetch(url)       
         .then((response) => response.json())
         .then((json) => {
             this.setState({bills: json});
@@ -54,7 +55,7 @@ export default class Bill extends Component{
             Alert.alert('Vui lòng nhập mã sách !');
         }
         else {
-            fetch('http://192.168.0.11:3000/employdb/bill', {
+            fetch(url, {
                 method: 'POST',
                 cache: 'no-cache',
                 headers: {

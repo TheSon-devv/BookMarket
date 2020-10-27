@@ -6,6 +6,7 @@ import CategoryProduct from './CategoryProduct';
 import { Fab } from 'native-base';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
+const url = 'http://192.168.0.115:3000/employdb/book';
 export default class Product extends Component{
     
     constructor(props){
@@ -25,7 +26,7 @@ export default class Product extends Component{
 
     refreshData = () => {
         this.setState({refreshing : true});
-        fetch('http://192.168.43.36:3000/employdb/book')       
+        fetch(url)       
             .then((response) => response.json())
             .then((json) => {
                 this.setState({books: json});
@@ -57,7 +58,7 @@ export default class Product extends Component{
             Alert.alert('Vui lòng nhập giá bán !');
         }
         else {
-            fetch('http://192.168.43.36:3000/employdb/book', {
+            fetch(url, {
                 method: 'POST',
                 cache: 'no-cache',
                 headers: {
