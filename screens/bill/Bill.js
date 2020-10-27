@@ -27,7 +27,7 @@ export default class Bill extends Component{
 
     refreshData = () => {
         this.setState({refreshing : true});
-        fetch('http://192.168.0.115:3000/employdb/bill')       
+        fetch('http://192.168.0.101:3000/employdb/bill')       
         .then((response) => response.json())
         .then((json) => {
             this.setState({bills: json});
